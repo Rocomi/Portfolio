@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>첫 포트폴리오</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #000000, #ffffff);
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            animation: fadeInOut 5s ease-in-out forwards;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .start-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: buttonFadeIn 7s ease-in-out forwards;
+        }
+
+        @keyframes buttonFadeIn {
+            0%, 80% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .start-button:hover {
+            background-color: #555;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: starAnimation 3s infinite;
+        }
+
+        @keyframes starAnimation {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.5);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">안녕하세요 엄희윤의 첫 포트폴리오입니다</div>
+        <button class="start-button" onclick="startPortfolio()">시작하기</button>
+    </div>
+
+    <script>
+        function startPortfolio() {
+            window.location.href = "https://rocomi.github.io/Portfoliofile";  // 포트폴리오 페이지로 이동
+        }
+
+        // 별을 생성하는 함수
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 3 + 1 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(star);
+
+            setTimeout(() => {
+                star.remove();
+            }, 5000); // 별이 화면에서 사라질 때 삭제
+        }
+
+        // 별을 지속적으로 생성
+        setInterval(createStar, 300);
+    </script>
+</body>
+</html>
